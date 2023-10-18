@@ -41,7 +41,7 @@ export default class Play extends Phaser.Scene {
       )
       .setOrigin(0, 0);
 
-    this.spinner = this.add.rectangle(100, 100, 50, 50, 0xff0000);
+    this.spinner = this.add.rectangle(100, 100, 50, 50, 0x01769);
   }
 
   update(_timeMs: number, delta: number) {
@@ -57,7 +57,7 @@ export default class Play extends Phaser.Scene {
     if (this.fire!.isDown) {
       this.tweens.add({
         targets: this.spinner,
-        scale: { from: 1.5, to: 1 },
+        scale: { from: 3, to: .5},
         duration: 300,
         ease: Phaser.Math.Easing.Sine.Out,
       });
