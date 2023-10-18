@@ -75,7 +75,7 @@ export default class Play extends Phaser.Scene {
       if(currentlyFiring == false){
         currentlyFiring = true;
       }else{
-        //this.spinner.setVelocityX= 100;
+        this.spinner?.setPosition(this.spinner.x, this.spinner.y-this.velocity);
       }
       // /this.spinner.
 
