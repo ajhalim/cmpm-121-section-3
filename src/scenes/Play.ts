@@ -10,6 +10,8 @@ export default class Play extends Phaser.Scene {
   starfield?: Phaser.GameObjects.TileSprite;
   spinner?: Phaser.GameObjects.Shape;
 
+  ship?: Phaser.GameObjects.Shape;
+
   rotationSpeed = Phaser.Math.PI2 / 1000; // radians per millisecond
 
   constructor() {
@@ -41,7 +43,10 @@ export default class Play extends Phaser.Scene {
       )
       .setOrigin(0, 0);
 
-    this.spinner = this.add.rectangle(100, 100, 50, 50, 0x01769);
+    this.spinner = this.add.rectangle(300, 450, 50, 50, 0x01769);
+    this.physics.add.existing(this.spinner);
+
+    this.ship = this.add.rectangle(550,100, 50,50, 0xeb4034);
   }
 
   update(_timeMs: number, delta: number) {
@@ -61,6 +66,9 @@ export default class Play extends Phaser.Scene {
         duration: 300,
         ease: Phaser.Math.Easing.Sine.Out,
       });
+
+      ///his.spinner?.setVelocityY(320);
+
     }
   }
 }
