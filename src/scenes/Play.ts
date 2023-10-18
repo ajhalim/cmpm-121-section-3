@@ -2,6 +2,8 @@ import * as Phaser from "phaser";
 
 import starfieldUrl from "/assets/starfield.png";
 
+let currentlyFiring: boolean = false;
+
 export default class Play extends Phaser.Scene {
   fire?: Phaser.Input.Keyboard.Key;
   left?: Phaser.Input.Keyboard.Key;
@@ -12,6 +14,8 @@ export default class Play extends Phaser.Scene {
 
   ship?: Phaser.GameObjects.Shape;
   ship1?: Phaser.GameObjects.Shape;
+
+  velocity = 10;
 
   rotationSpeed = Phaser.Math.PI2 / 1000; // radians per millisecond
 
@@ -68,6 +72,11 @@ export default class Play extends Phaser.Scene {
         ease: Phaser.Math.Easing.Sine.Out,
       });
 
+      if(currentlyFiring == false){
+        currentlyFiring = true;
+      }else{
+        //this.spinner.setVelocityX= 100;
+      }
       // /this.spinner.
 
     }
