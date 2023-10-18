@@ -11,6 +11,7 @@ export default class Play extends Phaser.Scene {
   spinner?: Phaser.GameObjects.Shape;
 
   ship?: Phaser.GameObjects.Shape;
+  ship1?: Phaser.GameObjects.Shape;
 
   rotationSpeed = Phaser.Math.PI2 / 1000; // radians per millisecond
 
@@ -23,8 +24,7 @@ export default class Play extends Phaser.Scene {
   }
 
   #addKey(
-    name: keyof typeof Phaser.Input.Keyboard.KeyCodes,
-  ): Phaser.Input.Keyboard.Key {
+    name: keyof typeof Phaser.Input.Keyboard.KeyCodes,): Phaser.Input.Keyboard.Key {
     return this.input.keyboard!.addKey(Phaser.Input.Keyboard.KeyCodes[name]);
   }
 
@@ -44,9 +44,10 @@ export default class Play extends Phaser.Scene {
       .setOrigin(0, 0);
 
     this.spinner = this.add.rectangle(300, 450, 50, 50, 0x01769);
-    this.physics.add.existing(this.spinner);
+    //this.physics.add.existing(this.spinner);
 
     this.ship = this.add.rectangle(550,100, 50,50, 0xeb4034);
+    this.ship1 = this.add.rectangle(550,200, 50,50, 0xeb4034);
   }
 
   update(_timeMs: number, delta: number) {
@@ -67,7 +68,7 @@ export default class Play extends Phaser.Scene {
         ease: Phaser.Math.Easing.Sine.Out,
       });
 
-      ///his.spinner?.setVelocityY(320);
+      // /this.spinner.
 
     }
   }
